@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 using zenBeat.Data;
 using zenBeat.Services;
 
@@ -30,10 +31,16 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-// Ensure database is created and seeded
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ZenBeatDbContext>();
+    var dbSource = context.Database.GetDbConnection().DataSource;
+    var dir = Path.GetDirectoryName(dbSource);
+    if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+    {
+        Directory.CreateDirectory(dir);
+    }
+
     context.Database.EnsureCreated();
     await DataSeeder.SeedData(context);
 }
