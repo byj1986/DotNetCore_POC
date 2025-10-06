@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("zenBeat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4edcee7e7fb7c0b8a12396627dad11ac9459ec3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9a655c8a6021b38297d2f6de25bbf1527f7d40f")]
 [assembly: System.Reflection.AssemblyProductAttribute("zenBeat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("zenBeat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

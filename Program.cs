@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Net;
 using zenBeat.Data;
 using zenBeat.Services;
 
@@ -17,6 +18,12 @@ builder.Services.AddDbContext<ZenBeatDbContext>(options =>
 // Add services
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IStepService, StepService>();
+
+// Force Kestrel to listen on IPv4 0.0.0.0:8080
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Listen(IPAddress.Any, 8080);
+});
 
 var app = builder.Build();
 
